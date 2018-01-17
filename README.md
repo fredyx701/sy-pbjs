@@ -5,4 +5,5 @@ fork from [protobufjs-cli](https://github.com/dcodeIO/protobuf.js/tree/master/cl
 ### Getting Started
 ```shell
 $ npm install -g sy-pbjs
+sy-pbjs -t static-module -w commonjs -o ../examples/helloworld_static.js ../examples/helloworld.proto
 ```

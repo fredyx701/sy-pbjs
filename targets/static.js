@@ -658,6 +658,21 @@ function buildService(ref, service) {
             push("return this.rpcCall(" + escapeName(lcName) + ", $root." + exportName(method.resolvedRequestType) + ", $root." + exportName(method.resolvedResponseType) + ", request, callback);");
             --indent;
         push("};");
+
+
+        push(escapeName(service.name) + util.safeProp(lcName) + "RequestType = function () {");
+            ++indent;
+        push("return $root." + exportName(method.resolvedRequestType) + ";");
+            --indent;
+        push("};");
+
+        push(escapeName(service.name) + util.safeProp(lcName) + "ResponseType = function () {");
+            ++indent;
+        push("return $root." + exportName(method.resolvedResponseType) + ";");
+            --indent;
+        push("};");
+
+
         if (config.comments)
             push("");
         pushComment([
