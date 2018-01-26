@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package access;
+
+import "user/account.proto";
+
+message AuthTokenReq {
+    string appId = 1;
+    user.UserInfo user = 2;
+    string sign = 3;
+}
+
+message AuthTokenResp {
+    int64 uid = 1;
+    string token = 2;
+}
+
+service Auth {
+    rpc token(AuthTokenReq) returns (AuthTokenResp);
+}

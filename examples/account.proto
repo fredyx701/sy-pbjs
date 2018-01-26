@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package user;
+
+message UserInfo {
+    string account = 1;
+    string nickname = 2;
+    string gender = 3;
+    string portrait = 4;
+}
+
+message AccountTouchReq {
+    string appId = 1;
+    UserInfo user = 2;
+}
+
+message AccountTouchResp {
+    int64 uid = 1;
+}
+
+service Account {
+    rpc touch(AccountTouchReq) returns (AccountTouchResp);
+}
