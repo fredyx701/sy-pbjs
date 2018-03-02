@@ -531,6 +531,7 @@ $root.access = (function() {
          * @variation 1
          */
         Auth.prototype.token = function token(request, callback) {
+            request = $root.access.AuthTokenReq.fromObject(request);
             return this.rpcCall(token, $root.access.AuthTokenReq, $root.access.AuthTokenResp, request, callback);
         };
         Auth.tokenRequestType = function () {
@@ -1287,6 +1288,7 @@ $root.user = (function() {
          * @variation 1
          */
         Account.prototype.touch = function touch(request, callback) {
+            request = $root.user.AccountTouchReq.fromObject(request);
             return this.rpcCall(touch, $root.user.AccountTouchReq, $root.user.AccountTouchResp, request, callback);
         };
         Account.touchRequestType = function () {

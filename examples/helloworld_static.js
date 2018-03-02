@@ -70,6 +70,7 @@ $root.helloworld = (function() {
          * @variation 1
          */
         Greeter.prototype.sayHello = function sayHello(request, callback) {
+            request = $root.helloworld.HelloRequest.fromObject(request);
             return this.rpcCall(sayHello, $root.helloworld.HelloRequest, $root.helloworld.HelloReply, request, callback);
         };
         Greeter.sayHelloRequestType = function () {

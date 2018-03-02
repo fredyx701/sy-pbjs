@@ -655,6 +655,7 @@ function buildService(ref, service) {
         ]);
         push(escapeName(service.name) + ".prototype" + util.safeProp(lcName) + " = function " + escapeName(lcName) + "(request, callback) {");
             ++indent;
+            push("request =" + " $root." + exportName(method.resolvedRequestType) + ".fromObject(request);");
             push("return this.rpcCall(" + escapeName(lcName) + ", $root." + exportName(method.resolvedRequestType) + ", $root." + exportName(method.resolvedResponseType) + ", request, callback);");
             --indent;
         push("};");
